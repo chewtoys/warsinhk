@@ -129,7 +129,7 @@
       },
       {
         "id": "poisonouspizza",
-        "name": "中毒的 Pizza"
+        "name": "肚餓的 Pizza"
       },
       {
         "id": "wishyouhealthy",
@@ -166,6 +166,38 @@
       {
         "id": "hoyiyuen",
         "name": "何已完"
+      },
+      {
+        "id": "curios",
+        "name": "curios"
+      },
+      {
+        "id": "iwantwelldone",
+        "name": "我要十成熟"
+      },
+      {
+        "id": "hker1",
+        "name": "香港人"
+      },
+      {
+        "id": "hker2",
+        "name": "香港人"
+      },
+      {
+        "id": "hker3",
+        "name": "香港人"
+      },
+      {
+        "id": "dari",
+        "name": "Dari"
+      },
+      {
+        "id": "pin",
+        "name": "Pin"
+      },
+      {
+        "id": "hker",
+        "name": "HKer"
       }
     ]
   }
