@@ -16,6 +16,7 @@ const { request } = require("graphql-request")
 const { getPath, getWarTipPath } = require("./src/utils/urlHelper")
 const isDebug = process.env.DEBUG_MODE === "true"
 const _get = require("lodash/get")
+const moment = require("moment")
 
 const PUBLISHED_SPREADSHEET_HIGH_RISK_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRbmRntCQ1cNkKd5eL3ZVBfgqX_lvQIdJIWxTTQdvSHd_3oIj_6yXOp48qAKdi-Pp-HqXdrrz1gysUr/pub?gid=0"
@@ -100,10 +101,18 @@ const createWorldCasesNode = async ({
   createNodeId,
   createContentDigest,
 }) => {
+  const lastWeek = moment()
+    .add(-10, "days")
+    .format("YYYY-MM-DD")
   const type = "BaiduInternationalData"
 
   const query = `{
     wars_BaiduInternationalData (
+      where: {
+        date: { 
+          _gt: "${lastWeek}"
+        }
+      }
       distinct_on: [date, area]
       order_by: [
         {date: desc},
@@ -122,6 +131,11 @@ const createWorldCasesNode = async ({
 
   const baiduChinaQuery = `{
     wars_BaiduChinaData (
+      where: {
+        date: { 
+          _gt: "${lastWeek}"
+        }
+      }
       distinct_on: [date, area, city]
         order_by: [
           {date: desc},
